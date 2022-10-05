@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<h2 class="title" style="text-align: center;">Sign up</h2>
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+     aria-atomic="true">
+    <div class="d-flex">
+        {% for message in messages %}
+        <div class="toast-body">
+            {{ message }}. Go to <a href="{{ url_for('auth.login') }}"></a>
+        </div>
+        {% endfor %}
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+    </div>
+</div>
+
+{% endif %}
+{% endwith %}
+
+{% block content %}
+
+
+<form class="px-4 py-3" method="POST" action="/signup">
+    <div class="mb-3">
+        <label for="exampleDropdownFormEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="exampleDropdownFormName1" placeholder="User name" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleDropdownFormEmail1" placeholder="email@example.com" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleDropdownFormPassword1" placeholder="Password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+{% endblock %}
