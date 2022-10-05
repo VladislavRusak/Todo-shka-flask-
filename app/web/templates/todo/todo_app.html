@@ -4,17 +4,23 @@
 {% block sidebar %}
 
 <h2 class="mt-20">Todo</h2>
+<button id="addBtn">Open Modal</button>
+<div id='addTaskModal' class="modal">
+    <div class="modal-content">
+        <form action="/todo/add" method="post">
+            <div>
+                <span class="close">&times;</span>
+                <label for="title" class="form-label">Add task</label>
+                <input type="text" class="form-control" name="title" placeholder="Enter Todo...">
+                <label for="content" class="form-label">Add content</label>
+                <input type="text" class="form-control" name="content" placeholder="Enter content...">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg">Add</button>
 
-<form action="/todo/add" method="post">
-    <div>
-        <label for="title" class="form-label">Add task</label>
-        <input type="text" class="form-control" name="title" placeholder="Enter Todo...">
-        <label for="content" class="form-label">Add content</label>
-        <input type="text" class="form-control" name="content" placeholder="Enter content...">
-        <br>
-        <button type="submit" class="btn btn-primary btn-lg">Add</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 
 {% endblock %}
 
