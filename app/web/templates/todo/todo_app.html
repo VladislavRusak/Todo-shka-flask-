@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
-{% block nav_title %}Todo{% endblock %}
+{% block top_title %}Todo{% endblock %}
 
 {% block sidebar %}
 
-<h2 class="mt-20">Todo</h2>
-<button id="addBtn">Open Modal</button>
+
+<button id="addBtn" class="addTaskBtn btn btn-primary">
+    <p> + </p>
+</button>
 <div id='addTaskModal' class="modal">
     <div class="modal-content">
         <form action="/todo/add" method="post">
@@ -28,7 +30,7 @@
 {% block content %}
 
 {% for item in todo_list %}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 20rem;">
     <div class="card-body">
         <h5 class="card-title">{{ item.id }} | {{ item.title }}</h5>
         {% if item.complete == False %}

@@ -14,8 +14,9 @@
 
 <body>
     {% include 'inc/_nav.html' %}
+    <h2 style="text-align: center;">{% block top_title %}Todo{% endblock %}</h2>
 
-    <div class="card ml-15" style="width: 70%; justify-content: center, margin: auto">
+    <div class="content-block">
         <div class="container-md ">
             {% block sidebar %}{% endblock %}
             <hr>
